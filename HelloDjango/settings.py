@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 """
 Django settings for HelloDjango project.
 
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'helloModel', # 数据python manage.py migrate模型
 ]
 
 MIDDLEWARE = [
@@ -73,13 +75,24 @@ WSGI_APPLICATION = 'HelloDjango.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+# mysql数据库连接配置
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'helloDjango',
+        'USER': 'root',
+        'PASSWORD': 'password',
+        'HOST':'localhost',
+        'PORT':'3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Django</title>
+</head>
+<body>
+<div style="margin:10px 0 0 40%;">
+    <h1>数据：</h1>
+    <table border="1px solid #fff;">
+    <thead>
+        <tr>
+            <td>序号</td>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>描述</td>
+        </tr>
+    </thead>
+        {% for i in list %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ i.name }}</td>
+                <td>{{ i.age }}</td>
+                <td>{{ i.description }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>
