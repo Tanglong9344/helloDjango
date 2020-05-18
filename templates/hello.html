@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Django</title>
+</head>
+<body>
+<div style="margin:10px 0 0 40%;">
+    <h1>{{ hello }}</h1>
+    {# if 标签 #}
+    <h3>
+        {% if num > 0 %}
+        正数:{{ num }}
+    {% elif num < 0 %}
+        负数:{{ num }}
+    {% else %}
+        零:{{ num }}
+    {% endif %}
+    </h3>
+    <h2>人员：</h2>
+    <table border="1px solid #fff;">
+    <thead>
+        <tr>
+            <td>序号</td>
+            <td>姓名</td>
+        </tr>
+    </thead>
+    {# for 标签 #}
+        {% for i in list %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ i }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>
