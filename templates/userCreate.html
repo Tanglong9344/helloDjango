@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Hello Django</title>
+    {% load static %}
+    <script type="text/javascript" src="{% static "jquery/jquery-3.4.1.min.js" %}"></script>
     <style>
         .formDiv{}
         .formDiv>intput{}
@@ -36,7 +38,8 @@
     $(function () {
         var type = "{{ type }}"
         if (type == "2"){
-
+            $("#submitBtn").hide()
+            $("form").find("input,textarea").attr("disabled",true)
         }
     })
 </script>
