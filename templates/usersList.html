@@ -6,7 +6,7 @@
 </head>
 <body>
 <div style="margin:10px 0 0 40%;">
-    <h1>数据：</h1>
+    <div><h1>数据：</h1><div><a href="/userCreate">新建</a> </div></div>
     <table border="1px solid #fff;">
     <thead>
         <tr>
@@ -14,6 +14,7 @@
             <td>姓名</td>
             <td>年龄</td>
             <td>描述</td>
+            <td>操作</td>
         </tr>
     </thead>
         {% for i in list %}
@@ -22,6 +23,11 @@
                 <td>{{ i.name }}</td>
                 <td>{{ i.age }}</td>
                 <td>{{ i.description }}</td>
+                <td>
+                    <a href="/userDelete?id={{ i.id }}">删除</a>
+                    <a href="/userView?id={{ i.id }}">查看</a>
+                    <a href="/userCreate?type=1&id={{ i.id }}">更新</a>
+                </td>
             </tr>
         {% endfor %}
     </table>

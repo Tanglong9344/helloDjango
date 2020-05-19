@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Django</title>
+    <style>
+        .formDiv{}
+        .formDiv>intput{}
+        .formDiv>textarea{width:167px;height:80px;}
+        .title{float:left;width:60px;}
+        .title>span{color:#f00;}
+    </style>
+</head>
+<body>
+<div style="margin:10px 0 0 40%;">
+    <form action="/userSave" method="post">
+        {% csrf_token %}
+        <div class="formDiv">
+            <input type="hidden" name="id" value="{{ user.id }}">
+            <span class="title"><span>*</span>姓名：</span><input name="name" value="{{ user.name }}" required>
+        </div>
+        <div class="formDiv">
+            <span class="title">&nbsp;年龄：</span><input name="age" value="{{ user.age }}">
+        </div>
+        <div class="formDiv">
+            <span class="title">&nbsp;描述：</span><textarea name="description">{{ user.description }}</textarea>
+        </div>
+        <div>
+            <input id="submitBtn" type="submit" value="提交">
+        </div>
+    </form>
+</div>
+<script>
+    $(function () {
+        var type = "{{ type }}"
+        if (type == "2"){
+
+        }
+    })
+</script>
+</body>
+</html>

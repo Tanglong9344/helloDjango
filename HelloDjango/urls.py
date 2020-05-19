@@ -6,8 +6,9 @@ urlpatterns = [
     # url(r'^$', view.hello),
     path('', hello.index),
     path('hello/', hello.hello),
-    url(r'^savedb$', testdb.save),
-    url(r'^deletedb$', testdb.delete),
-    url(r'^updatedb$', testdb.update),
-    url(r'^selectdb$', testdb.select),
+    url(r'^userSave$', testdb.save),
+    url('userDelete', testdb.delete),
+    url('userUpdate', testdb.update),
+    url('users', testdb.select),
+    url('userCreate', testdb.userCreate),
 ]
