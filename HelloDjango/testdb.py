@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from helloModel.models import users
 
 # 数据库操作
@@ -29,7 +29,7 @@ def delete(request):
         return HttpResponse("<p>Id不允许为空！</p>")
     user = users.objects.get(id=id)
     user.delete()
-    return HttpResponse("<p>数据删除成功！<p><a href='/users'>返回</a></p></p>")
+    return redirect("/users")
 
 # update
 def update(request):
@@ -65,9 +65,11 @@ def select(request):
 
 # create or update user
 def userCreate(request):
-    type = int(request.GET.get("type"))
+    type = request.GET.get("type")
     if type is None:
         type = 0
+    else:
+        type = int(type)
     context = {}
     if type == 1 or type == 2:
         id = request.GET.get("id")
